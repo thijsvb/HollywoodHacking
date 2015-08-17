@@ -9,9 +9,9 @@ float timeSub2;
 float delayMain = 100;
 float delaySub1 = 25;
 float delaySub2 = 500;
-float fontSizeMain = 50;
-float fontSizeSub1 = 10;
-float fontSizeSub2 = 30;
+float fontSizeMain = 20;
+float fontSizeSub1 = 5;
+float fontSizeSub2 = 15;
 String linesMain;
 String linesSub1;
 String[] linesSub2 = new String[29];
@@ -38,7 +38,7 @@ void setup(){
     linesSub2[i] = file2[i];
   }
   
-  size(displayWidth,displayHeight);
+  fullScreen();
  
   font = createFont("Monospaced", fontSizeMain);
   textFont(font);
@@ -52,10 +52,10 @@ void draw(){
 }
 
 void keyPressed(){
-  if(key == CODED && keyCode == 25){
+  if(key == CODED && keyCode == UP){
     c = color(255,0,0);
   }
-  else if(key == CODED && keyCode == 24){
+  else if(key == CODED && keyCode == DOWN){
     c = color(0,255,0);
   }
 }

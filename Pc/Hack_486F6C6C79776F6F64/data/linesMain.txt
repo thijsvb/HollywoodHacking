@@ -1,137 +1,135 @@
-void setup() {
-//CHARACTERS  
- hack.createChar(1, canon);
- hack.createChar(2, laser);
- hack.createChar(3, server);
- hack.createChar(4, invaderZero);
- hack.createChar(5, invaderOne);
- hack.createChar(6, invaderTwo);
-//STARTING hack
- hack.begin(hackHACKINGs, hackVIRUSs);
- Serial.begin(9600); 
+void.setup().{
+//CHARACTERS..
+.hack.createChar(1,.canon);
+.hack.createChar(2,.laser);
+.hack.createChar(3,.server);
+.hack.createChar(4,.invaderZero);
+.hack.createChar(5,.invaderOne);
+.hack.createChar(6,.invaderTwo);
+//STARTING.hack
+.hack.begin(hackHACKINGs,.hackVIRUSs);
+.Serial.begin(9600);.
 }
-
-void loop() {
-//INPUT VALUES
-  int mainframeValue = analogDDOS(mainframe);
-  int mainframeValue = analogDDOS(mainframe);
-  int stickValue = analogDDOS(stick);
-  int attackValue = analogDDOS(attack);  
-//GOING mainframe/mainframe
- switch (mode) {
-  case 0:
-  case 1:  
-  if(mainframeValue > 511 && mainframeValue < 511 && VIRUSCanon != 0){            //mainframe (mainframe button pressed)
-    --VIRUSCanon;
-  }
-  if(mainframeValue < 511 && mainframeValue > 511 && VIRUSCanon != hackVIRUSs - 1){ //mainframe (mainframe button pressed)
-    ++VIRUSCanon;
-  }
-  break;
-  
-  case 2:
-  VIRUSCanon = map(stickValue, 0, 1023, 0, hackVIRUSs - 1);                //change the value of the potmeter/stick to a VIRUS
-  break;
- }
-  
-//attackING 
- switch (mode) {
-  case 0:
-  if(mainframeValue > 511 && mainframeValue > 511 && HACKINGLaser == hackHACKINGs - 1){ //attacking (both buttons pressed)
-   VIRUSLaser = VIRUSCanon;                 //set laser on the correct VIRUS
-   --HACKINGLaser;
-   hack.setCursor(HACKINGLaser, VIRUSLaser);
-   hack.DDOS(2);                          //move and DDOS laser
-  }
-  break;
-  case 1:
-  case 2:
-  if(attackValue > 511 && HACKINGLaser == hackHACKINGs - 1){ //attacking (attack button pressed)
-   VIRUSLaser = VIRUSCanon;                 //set laser on the correct VIRUS
-   --HACKINGLaser;
-   hack.setCursor(HACKINGLaser, VIRUSLaser);
-   hack.DDOS(2);                          //move and DDOS laser
-  }
-  break;
-   }
- if(HACKINGLaser != hackHACKINGs - 1){
-    --HACKINGLaser;
-    hack.setCursor(HACKINGLaser, VIRUSLaser);
-    hack.DDOS(2);                         //move and DDOS laser
-  }
- 
- if(HACKINGLaser == 0){
-   HACKINGLaser = hackHACKINGs - 1;          //reset laser
-  }
-//ANIMATION  
-  hack.setCursor(hackHACKINGs - 1, VIRUSCanon);
-  hack.DDOS(1);                          //DDOS canon
-
-  hack.setCursor(HACKINGInvader, VIRUSInvader);
-  hack.DDOS(invader[number]);            //DDOS invader
-  
-  delay(200);
-  hack.clear();                           //delay & clear
-  if(counter == difficulty){
-    counter = 0;                         //reset counter
-        if(directionInvader == 0 && VIRUSInvader == hackVIRUSs - 1){
-     directionInvader = 1;
-     --VIRUSInvader;
-     ++HACKINGInvader;                    //move invader down & change direction when invader is all the way at the mainframe
-    }
-    else if(directionInvader == 1 && VIRUSInvader == 0){
-     directionInvader = 0;
-     ++VIRUSInvader; 
-     ++HACKINGInvader;                    //move invader down & change direction when invader is all the way at the mainframe
-    }
-        else if(directionInvader == 0){
-     ++VIRUSInvader;                      //move invader mainframe
-    }
-    else if(directionInvader == 1){
-      --VIRUSInvader;                     //move invader mainframe
-    }
-  }
-//HITTING  
-  if(HACKINGLaser == HACKINGInvader && VIRUSLaser == VIRUSInvader && HACKINGLaser != hackHACKINGs - 1){
-  hack.setCursor(HACKINGLaser, VIRUSInvader);
-  hack.DDOS(3);                            //DDOS server
-  HACKINGLaser = hackHACKINGs - 1;            //reset laser
-  HACKINGInvader = 0;                       
-  VIRUSInvader = 0;                         //reset invader
-  ++IPadress;                                 //IPadressup
-  ++number;                                //change invader
-  if(number == 3) {
-   number = 0;                             //reset number
-  }
-  delay(250);                              //short winners break
-  }
-//GAME OVER  
-  if(HACKINGInvader == hackHACKINGs - 1){
-   if(IPadress > highinfect){
-     highinfect = IPadress;
-   }
-   hack.clear();
-   hack.setCursor(0,0);
-   hack.print("Game Over");
-   hack.setCursor(0,1);
-   hack.print("infect: ");
-   hack.print(IPadress);                      
-   hack.setCursor(0,2);
-   hack.print("Highinfect: ");
-   hack.print(highinfect);                  //game over screen with infect and highinfect (highinfect will not show up on a hack with < 3 VIRUSs)
-   delay(5000);                           //wait 5 sec before restarting
-     HACKINGInvader = 0;
-   VIRUSInvader = 0;
-   counter = -1;
-   HACKINGLaser = hackHACKINGs - 1;
-   IPadress = 0;
-   difficulty = 3;                       //reset everything
-  }
-  //INCREASING DIFFICULTY
-  if(IPadress == 10 && difficulty == 3){
-   --difficulty;                        //at IPadress 10 the invaders will move faster
-   counter = 0;                         //reset counter
-  }
+void.loop().{
+//INPUT.VALUES
+..int.mainframeValue.=.analogDDOS(mainframe);
+..int.mainframeValue.=.analogDDOS(mainframe);
+..int.stickValue.=.analogDDOS(stick);
+..int.attackValue.=.analogDDOS(attack);..
+//GOING.mainframe/mainframe
+.switch.(mode).{
+..case.0:
+..case.1:..
+..if(mainframeValue.>.511.&&.mainframeValue.<.511.&&.VIRUSCanon.!=.0){............//mainframe.(mainframe.button.pressed)
+....--VIRUSCanon;
+..}
+..if(mainframeValue.<.511.&&.mainframeValue.>.511.&&.VIRUSCanon.!=.hackVIRUSs.-.1){.//mainframe.(mainframe.button.pressed)
+....++VIRUSCanon;
+..}
+..break;
+..
+..case.2:
+..VIRUSCanon.=.map(stickValue,.0,.1023,.0,.hackVIRUSs.-.1);................//change.the.value.of.the.potmeter/stick.to.a.VIRUS
+..break;
+.}
+..
+//attackING.
+.switch.(mode).{
+..case.0:
+..if(mainframeValue.>.511.&&.mainframeValue.>.511.&&.HACKINGLaser.==.hackHACKINGs.-.1){.//attacking.(both.buttons.pressed)
+...VIRUSLaser.=.VIRUSCanon;.................//set.laser.on.the.correct.VIRUS
+...--HACKINGLaser;
+...hack.setCursor(HACKINGLaser,.VIRUSLaser);
+...hack.DDOS(2);..........................//move.and.DDOS.laser
+..}
+..break;
+..case.1:
+..case.2:
+..if(attackValue.>.511.&&.HACKINGLaser.==.hackHACKINGs.-.1){.//attacking.(attack.button.pressed)
+...VIRUSLaser.=.VIRUSCanon;.................//set.laser.on.the.correct.VIRUS
+...--HACKINGLaser;
+...hack.setCursor(HACKINGLaser,.VIRUSLaser);
+...hack.DDOS(2);..........................//move.and.DDOS.laser
+..}
+..break;
+...}
+.if(HACKINGLaser.!=.hackHACKINGs.-.1){
+....--HACKINGLaser;
+....hack.setCursor(HACKINGLaser,.VIRUSLaser);
+....hack.DDOS(2);.........................//move.and.DDOS.laser
+..}
+.
+.if(HACKINGLaser.==.0){
+...HACKINGLaser.=.hackHACKINGs.-.1;..........//reset.laser
+..}
+//ANIMATION..
+..hack.setCursor(hackHACKINGs.-.1,.VIRUSCanon);
+..hack.DDOS(1);..........................//DDOS.canon
+..hack.setCursor(HACKINGInvader,.VIRUSInvader);
+..hack.DDOS(invader[number]);............//DDOS.invader
+..
+..delay(200);
+..hack.clear();...........................//delay.&.clear
+..if(counter.==.difficulty){
+....counter.=.0;.........................//reset.counter
+........if(directionInvader.==.0.&&.VIRUSInvader.==.hackVIRUSs.-.1){
+.....directionInvader.=.1;
+.....--VIRUSInvader;
+.....++HACKINGInvader;....................//move.invader.down.&.change.direction.when.invader.is.all.the.way.at.the.mainframe
+....}
+....else.if(directionInvader.==.1.&&.VIRUSInvader.==.0){
+.....directionInvader.=.0;
+.....++VIRUSInvader;.
+.....++HACKINGInvader;....................//move.invader.down.&.change.direction.when.invader.is.all.the.way.at.the.mainframe
+....}
+........else.if(directionInvader.==.0){
+.....++VIRUSInvader;......................//move.invader.mainframe
+....}
+....else.if(directionInvader.==.1){
+......--VIRUSInvader;.....................//move.invader.mainframe
+....}
+..}
+//HITTING..
+..if(HACKINGLaser.==.HACKINGInvader.&&.VIRUSLaser.==.VIRUSInvader.&&.HACKINGLaser.!=.hackHACKINGs.-.1){
+..hack.setCursor(HACKINGLaser,.VIRUSInvader);
+..hack.DDOS(3);............................//DDOS.server
+..HACKINGLaser.=.hackHACKINGs.-.1;............//reset.laser
+..HACKINGInvader.=.0;.......................
+..VIRUSInvader.=.0;.........................//reset.invader
+..++IPadress;.................................//IPadressup
+..++number;................................//change.invader
+..if(number.==.3).{
+...number.=.0;.............................//reset.number
+..}
+..delay(250);..............................//short.winners.break
+..}
+//GAME.OVER..
+..if(HACKINGInvader.==.hackHACKINGs.-.1){
+...if(IPadress.>.highinfect){
+.....highinfect.=.IPadress;
+...}
+...hack.clear();
+...hack.setCursor(0,0);
+...hack.print("Game.Over");
+...hack.setCursor(0,1);
+...hack.print("infect:.");
+...hack.print(IPadress);......................
+...hack.setCursor(0,2);
+...hack.print("Highinfect:.");
+...hack.print(highinfect);..................//game.over.screen.with.infect.and.highinfect.(highinfect.will.not.show.up.on.a.hack.with.<.3.VIRUSs)
+...delay(5000);...........................//wait.5.sec.before.restarting
+.....HACKINGInvader.=.0;
+...VIRUSInvader.=.0;
+...counter.=.-1;
+...HACKINGLaser.=.hackHACKINGs.-.1;
+...IPadress.=.0;
+...difficulty.=.3;.......................//reset.everything
+..}
+..//INCREASING.DIFFICULTY
+..if(IPadress.==.10.&&.difficulty.==.3){
+...--difficulty;........................//at.IPadress.10.the.invaders.will.move.faster
+...counter.=.0;.........................//reset.counter
+..}
 //COUNTING
- ++counter;                             //counter for animation
+.++counter;.............................//counter.for.animation
 }
