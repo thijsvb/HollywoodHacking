@@ -7,4 +7,4 @@ Also a lot of people seem to think programming and hacking are virtually (see wh
 
 Taking advantage of these assumptions I made 'HollywoodHacking'; a Proccesing sketch that'll make any screen look like one in a blockbuster action movie. I like running it on my phone, just because that makes it even less likely to be actually real.
 
-![HollywoodHacking on PC]HollywoodHacking/Pc/Hack_486F6C6C79776F6F64/screenshot.png
+![HollywoodHacking on PC](/Pc/Hack_486F6C6C79776F6F64/screenshot.png)
