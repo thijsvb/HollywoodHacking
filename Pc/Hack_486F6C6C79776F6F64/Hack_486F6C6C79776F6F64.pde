@@ -1,4 +1,3 @@
-stop
 PFont font;
 float yMain = 0;
 float ySub1 = 0;
