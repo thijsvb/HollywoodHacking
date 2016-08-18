@@ -1,6 +1,6 @@
 
 #!/bin/bash
-myexe="./processing-3.2/processing-java"
+myexe="./../../processing-3.2/processing-java"
 input_folder=${PWD##}
 sketch_name=${PWD##*/}
 output_folder=$input_folder"_output"
