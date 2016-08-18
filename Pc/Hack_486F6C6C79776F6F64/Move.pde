@@ -25,7 +25,7 @@ void move(){
   //Sub2
   if(millis() - timeSub2 >= delaySub2){
     ++loading;
-    bar = "[";
+    bar = "";
     if(loading == 10){
       ++lSub2;
       loading = 0;

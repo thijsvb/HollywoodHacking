@@ -1,0 +1,10 @@
+language: java
+
+before_install:
+  - java -version
+
+script:
+  - jdk_switcher use oraclejdk8
+  - ./download_processing.sh
+  - cd Pc/Hack_486F6C6C79776F6F64; ./../../build; cd ../..
+  - cd Android/Hack_486F6C6C79776F6F64; ./../../build; cd ../..

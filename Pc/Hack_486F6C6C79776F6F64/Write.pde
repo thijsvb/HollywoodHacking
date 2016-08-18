@@ -15,6 +15,7 @@ void write(){
   fill(0);
   textSize(fontSizeSub2);
   text(linesSub2[lSub2],width/2+5,height/3*2,width/2-10,height);
+  bar = "[";
   for(int i=0; i!=10; ++i){
     if(i<=loading){
       bar+='#';
